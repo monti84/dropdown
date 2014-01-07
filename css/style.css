@@ -1,0 +1,70 @@
+#page-container .custom-dropdown.year {
+  width: 78px;
+  margin: 15px;
+  height: 24px;
+}
+
+
+#page-container .custom-dropdown.year > .button {
+  width: 25px;
+  position: absolute;
+  height: 24px;
+  top: 1px;
+  right: 0;
+  z-index: 100001;
+  background-color: #fff;
+  -webkit-border-top-right-radius: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  -moz-border-radius-bottomright: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+#page-container .custom-dropdown.year > .button > .icon {
+  margin: 8px 0 0 7px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 10px 6px 0 6px;
+  border-color: #26abe2 transparent transparent transparent;
+  transition : border 500ms ease-out; 
+  -webkit-transition : border 500ms ease-out; 
+  -moz-transition : border 500ms ease-out;
+  -o-transition : border 500ms ease-out; 
+}
+
+#page-container .custom-dropdown.year > .button:hover > .icon {
+  border-color: #9AD7F1 transparent transparent transparent;
+}
+
+
+#page-container .custom-dropdown.year > ul {
+  overflow: hidden;
+  background-color: #fff;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid black;
+}
+
+#page-container .custom-dropdown.year > ul > li {
+  padding: 0 35px 0 10px;
+  transition : background-color 50ms ease-out; 
+  -webkit-transition : background-color 50ms ease-out; 
+  -moz-transition : background-color 50ms ease-out;
+  -o-transition : background-color 50ms ease-out; }
+
+#page-container .custom-dropdown.year.opened> ul > li:first-child {
+  border-bottom: 1px solid #000;
+}
+
+#page-container .custom-dropdown.year.opened > ul > li:nth-child(n+2):hover,
+#page-container .custom-dropdown.year.opened > ul > li.hover {
+  background-color: #26abe2;
+  color: #fff;
+}
+
+#page-container .custom-dropdown.year.opened > ul > li.hidden {
+  display: none;
+}
