@@ -40,7 +40,7 @@ $(document).ready(function() {
         container.children('input[type="hidden"]').val($(this).attr('data-value'));
         container.children('input[type="hidden"]').trigger('change');
         
-        container.toggleClass('opened');       
+        container.toggleClass('opened');
       }
       
       else if ($(this).is(':first-child') || $(this).hasClass('button')) {
@@ -58,8 +58,8 @@ $(document).ready(function() {
   })
   
   /* debug */
-  $(document).on('change', 'input', function (e) {
-    console.log('changed');
+  $(document).on('change', 'input', function () {
+    console.log($(this).attr('name') + " = " + $(this).val());
   });
 });
 
