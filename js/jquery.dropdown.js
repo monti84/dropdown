@@ -32,7 +32,7 @@ $(document).ready(function() {
     wrapper.find('ul > li').click(function() {
       var container = $(this).parents('.custom-dropdown');
       if (container.hasClass('opened')) {
-        if (!$(this).is('li')) { container.toggleClass('opened'); return false; }
+        if (!$(this).is('li') || $(this).index() == 0) { container.toggleClass('opened'); return false; }
         $(this).siblings().first().remove();
         $(this).parents('ul').prepend($(this).clone(true));
         if($(this).index() > 0) container.children('input[type="hidden"]').val($(this).attr('data-value'));
@@ -47,8 +47,16 @@ $(document).ready(function() {
     })
     
     
-    $(this).find('.button').click(function() { $(this).parent().find('ul > li:first-child').trigger('click') } );
+    wrapper.children('.button').click(function(e) { 
+      wrapper.toggleClass('opened');
+      return false;      
+    });
   })
+  
+  /* debug */
+  $(document).on('change', 'input', function (e) {
+    console.log('changed');
+  });
 });
 
 $(document).on('click', function() {
