@@ -24,6 +24,28 @@ $(document).ready(function() {
 
     /* clone selected li element */
     wrapper.find('ul > li:first-child').before(wrapper.find('ul > li[data-value=' + hiddenField.val() + ']').clone(true));
+
+
+
+  
+    /* click event */
+    wrapper.find('ul > li').click(function() {
+      var container = $(this).parents('.custom-dropdown');
+      if (container.hasClass('opened')) {
+        if (!$(this).is('li')) { container.toggleClass('opened'); return false; }
+        $(this).siblings().first().remove();
+        $(this).parents('ul').prepend($(this).clone(true));
+        if($(this).index() > 0) container.children('input[type="hidden"]').val($(this).attr('data-value'));
+          container.toggleClass('opened');       
+      }
+      
+      else if ($(this).is(':first-child') || $(this).hasClass('button')) {
+        $('.custom-dropdown').removeClass('opened'); /* close other opened dropdowns */
+        container.toggleClass('opened');
+      }
+      return false;
+    })
+    
     
     $(this).find('.button').click(function() { $(this).parent().find('ul > li:first-child').trigger('click') } );
   })
