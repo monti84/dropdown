@@ -19,6 +19,7 @@ $(document).ready(function() {
     if (!hiddenField.val()) {
       wrapper.children('ul > li:first-child').addClass('selected');
       hiddenField.val(wrapper.children('ul > li.selected').attr('data-value'));      
+      hiddenField.trigger('change');
     }
     else wrapper.find('ul > li[data-value="' + hiddenField.val() + '"]').addClass('selected');
 
@@ -35,7 +36,10 @@ $(document).ready(function() {
         if (!$(this).is('li') || $(this).index() == 0) { container.toggleClass('opened'); return false; }
         $(this).siblings().first().remove();
         $(this).parents('ul').prepend($(this).clone(true));
-        if($(this).index() > 0) container.children('input[type="hidden"]').val($(this).attr('data-value'));
+        
+        container.children('input[type="hidden"]').val($(this).attr('data-value'));
+        container.children('input[type="hidden"]').trigger('change');
+        
         container.toggleClass('opened');       
       }
       
