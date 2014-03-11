@@ -36,7 +36,7 @@ $(document).ready(function() {
         $(this).siblings().first().remove();
         $(this).parents('ul').prepend($(this).clone(true));
         if($(this).index() > 0) container.children('input[type="hidden"]').val($(this).attr('data-value'));
-          container.toggleClass('opened');       
+        container.toggleClass('opened');       
       }
       
       else if ($(this).is(':first-child') || $(this).hasClass('button')) {
