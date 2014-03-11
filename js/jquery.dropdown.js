@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  /* dropdown */
   $('.custom-dropdown').each(function() {
     var inputName = $(this).attr('name');
     
@@ -29,7 +28,7 @@ $(document).ready(function() {
 
 
   
-    
+    /* click event */
     wrapper.find('ul > li, .button').click(function() {
       var container = $(this).parents('.custom-dropdown');
       if (container.hasClass('opened')) {
@@ -47,8 +46,6 @@ $(document).ready(function() {
       return false;
     })
     
-    
-/* keyboard     
     
     $(document).keydown(function(e) {
       if ($('.custom-dropdown.opened').length == 1) {
@@ -110,7 +107,6 @@ $(document).ready(function() {
         else return true;
       }
     });
-    */
     
     $(this).find('.button').click(function() { $(this).parent().find('ul > li:first-child').trigger('click') } );
   })
