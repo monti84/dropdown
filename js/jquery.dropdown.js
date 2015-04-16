@@ -94,26 +94,28 @@ $(document).ready(function() {
         var hiddenElements = parseInt(container.find('ul > li.hidden').length);
         var firstVisibleElement = $('.custom-dropdown.opened').find('ul > li.hidden').last().index() + 2;
         var lastVisibleElement = firstVisibleElement + elementPerView - 1;
-        console.log('First: ' + firstVisibleElement + ', Last: ' + lastVisibleElement);
+//        console.log('First: ' + firstVisibleElement + ', Last: ' + lastVisibleElement);
                 
         
         if (e.keyCode == 38)  { // up
           if (currentIDX == 1) return true;
-          childElements.removeClass('hover');
-          if (container.find('ul > li.hover').length < 1) {
+          else if (currentIDX == -1) {
             container.find('ul > li:nth-child(2)').addClass('hover');
-            currentIDX = 0;
+            currentIDX = 1;
           }
+          
           else {
-            var currentIDX = container.find('ul > li.hover').index();
-            container.find('ul > li.hover').removeClass('hover');
-            container.find('ul > li:nth-child(' + currentIDX + ')').addClass('hover');
+            childElements.removeClass('hover');
+            currentIDX = currentIDX - 1;
+            container.find('ul > li').eq(currentIDX).addClass('hover');
           }
 
+/*
           if (currentIDX - hiddenElements > elementPerView) {
             if (hiddenElements > 0) $('.custom-dropdown.opened').find('ul > li.hidden').last().next('li').addClass('hidden');
             else $('.custom-dropdown.opened').find('ul > li:nth-child(2)').addClass('hidden');
           }
+*/
           return false;
         }
         
@@ -126,7 +128,7 @@ $(document).ready(function() {
             var currentIDX = container.find('ul > li.hover').index() + 2;
             container.find('ul > li.hover').removeClass('hover');
             container.find('ul > li:nth-child(' + currentIDX + ')').addClass('hover');
-            console.log(currentIDX + "-" + hiddenElements + ">" + elementPerView);
+//            console.log(currentIDX + "-" + hiddenElements + ">" + elementPerView);
 
             if (currentIDX - hiddenElements > elementPerView && currentIDX) {
               if (hiddenElements > 0) $('.custom-dropdown.opened').find('ul > li.hidden').last().next('li').addClass('hidden');
